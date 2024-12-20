@@ -22,3 +22,6 @@ The following technologies will be employed in this project:
 
 ## Useful Resource
 For a good starting point, refer to this resource: [Langflow on Hugging Face](https://huggingface.co/spaces/Langflow/Langflow)
+
+## Architecture
+![Tourist Planning Chatbot](assets/architecture_image.png "Les Vacanciers")
