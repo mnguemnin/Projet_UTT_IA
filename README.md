@@ -23,5 +23,18 @@ The following technologies will be employed in this project:
 ## Useful Resource
 For a good starting point, refer to this resource: [Langflow on Hugging Face](https://huggingface.co/spaces/Langflow/Langflow)
 
+## Branch Nomenclature
+ft-vac-llama-name
+ft-vac-langchain-name
+ft-vac-streamlit-name
+
 ## Architecture
 ![Tourist Planning Chatbot](assets/architecture_image.png "Les Vacanciers")
+
+## Methodoly
+Agile with **1 week** sprints (Sunday 8pm)
+
+## Week 1
+->**DOGNON** llama
+->**ELIE** langchain
+->**NGUEMNIN** streamlit
