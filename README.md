@@ -37,4 +37,4 @@ Agile with **1 week** sprints (Sunday 8pm)
 ## Week 1
 ->**DOGNON** llama
 ->**ELIE** langchain
-->**NGUEMNIN** streamlit
+->**NGUEMNIN** llama#langchain
