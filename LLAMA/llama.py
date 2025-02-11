@@ -5,6 +5,8 @@ client = Groq(
     api_key="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",
 )
 
+
+
 def main():
     print("Welcome to the Q&A Chatbot!")
     print("Ask me anything, and I'll do my best to provide helpful answers.")
