@@ -1,0 +1,2 @@
+groq~=0.13.1
+langchain-core

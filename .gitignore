@@ -1,1 +1,13 @@
 venv
+/.idea/.gitignore
+/main.py
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/Projet_IA_UTT.iml
+/requirements.txt
+/test.py
+/test2.py
+/test3.py
+/test4.py
+/.idea/vcs.xml
