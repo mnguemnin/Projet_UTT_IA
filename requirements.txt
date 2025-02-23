@@ -2,3 +2,4 @@ groq~=0.13.1
 langchain-core
 langchain
 langchain-community
+langchain-groq
