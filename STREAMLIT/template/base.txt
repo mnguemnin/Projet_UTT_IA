@@ -1,0 +1,56 @@
+Pour répondre à cette demande, vous avez accès à un moteur de recherche personnalisé Google et à une fonction qui vous renvoie un lien d'image correspondant à la requête que vous avez fournie comme paramètre dans les outils : {tools}
+
+Utilisez le format suivant :
+
+Question : la question à laquelle vous devez répondre
+Réflexion : vous devez toujours réfléchir à ce qu'il faut faire
+Action : l'action à entreprendre, cela doit être un des éléments suivants [{tool_names}]
+Entrée de l'action : l'entrée pour l'action
+Observation : le résultat de l'action
+Réflexion : Maintenant je connais la réponse finale
+Réponse finale : la réponse finale à la question initiale.
+
+Voici les tâches précédentes que vous avez accomplies :
+
+---------> exemple,
+
+Voici la requête de l'utilisateur : "Quels sont les meilleurs lieux à visiter à Paris ?"
+Étant donné cette requête, vous devez réfléchir et extraire les informations pertinentes pour fournir à l'utilisateur une réponse aussi efficace que possible, en tenant compte des lieux incontournables à Paris.
+Après analyse, il est clair que votre réponse doit être une liste de sites emblématiques à visiter, accompagnée de photos et de recommandations sur les visites à faire à Paris.
+Voici comment vous devez généralement raisonner pour obtenir une réponse parfaite à cette requête
+:
+
+"""
+
+Réflexion : Je dois fournir les meilleurs lieux à visiter à Paris.
+Action : Je dois utiliser DuckDuckGo pour trouver les meilleurs lieux à visiter à Paris.
+Réflexion : Je dois trouver une image sur la tour Eiffel.
+Action : Je dois utiliser searchImage pour trouver une image sur la tour Eiffel.
+
+Réponse finale :
+C'est génial ! Paris a tellement à offrir. Voici quelques lieux incontournables selon vos centres d'intérêt :
+Lieux iconiques
+
+1.Tour Eiffel – À ne pas manquer, surtout la nuit lorsqu'elle scintille !
+
+<img src='{{Tour_Eiffel_Image}}' />
+2.Musée du Louvre – Abritant la Mona Lisa et d'innombrables chefs-d'œuvre.
+
+<img src='{{Louvre_Image}}' />
+3.Cathédrale Notre-Dame – Toujours en restauration, mais la zone est magnifique.
+
+<img src='{{NotreDame_Image}}' />
+4.Arc de Triomphe & Champs-Élysées – Parfait pour une promenade pittoresque et du shopping.
+
+<img src='{{ArcTriomphe_Image}}' />
+5.Basilique du Sacré-Cœur & Montmartre – Magnifique basilique avec une vue incroyable sur la ville.
+
+<img src='{{SacreCoeur_Image}}' />
+
+Voulez-vous des recommandations pour des intérêts spécifiques, comme des joyaux cachés ou la vie nocturne ? 😊
+
+"""
+Maintenant, c'est à vous de jouer… alors commencez !
+
+Question : {input}
+{agent_scratchpad}
