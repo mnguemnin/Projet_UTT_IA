@@ -12,6 +12,9 @@ from template.template import CustomPromptTemplate, read_template
 from parse.parser import CustomOutputParser
 from langchain.memory import ConversationBufferMemory  # Import memory class
 import streamlit as st
+from pathlib import Path
+
+# Get the correct absolute path
 
 # DuckDuckGo search setup
 duckduckgo_search = DuckDuckGoSearchRun()
@@ -56,9 +59,9 @@ def setup_agent(chatbot_name, memory, callbacks):
             description="\U0001F30D Useful tool to search the Internet for a query and return relevant and up-to-date results."
         ),
     ]
-
+    template_path = Path(__file__).parent / "template" / "base2.txt"
     prompt = CustomPromptTemplate(
-        template=read_template(str(   "template" / "base2.txt")).replace(
+        template=read_template(template_path).replace(
             "{chatbot_name}", chatbot_name),
         tools=tools,
         input_variables=["input", "intermediate_steps", "chat_history"]
