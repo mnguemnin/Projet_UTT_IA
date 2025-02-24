@@ -58,7 +58,7 @@ def setup_agent(chatbot_name, memory, callbacks):
     ]
 
     prompt = CustomPromptTemplate(
-        template=read_template(str(Path(__file__).resolve().parent.parent  / "Projet_IA_UTT" / "template" / "base2.txt")).replace(
+        template=read_template(str(Path(__file__).resolve().parent.parent / "template" / "base2.txt")).replace(
             "{chatbot_name}", chatbot_name),
         tools=tools,
         input_variables=["input", "intermediate_steps", "chat_history"]
