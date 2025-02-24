@@ -6,7 +6,6 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_core.tools import Tool
 from langchain.chat_models import init_chat_model
 from langchain_community.tools import DuckDuckGoSearchRun
-#from template.template import CustomPromptTemplate, read_template
 
 # Configuration de la page
 st.set_page_config(page_title="Les vacanciers", layout="wide")
@@ -22,7 +21,6 @@ def get_memory():
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = InMemoryChatMessageHistory(session_id="streamlit-session")
     return st.session_state.chat_history
-
 
 
 # Outil de recherche d'images via DuckDuckGo
@@ -44,15 +42,6 @@ class ImageSearchTool:
 # Créer une instance de l'outil de recherche d'images
 image_search_tool = ImageSearchTool()
 
-"""prompt = CustomPromptTemplate(
-        template=read_template(str(Path(__file__).resolve().parent.parent / "template" / "base.txt")).replace(
-            "{chatbot_name}", chatbot_name),
-        tools=tools,
-        input_variables=["input", "intermediate_steps", "chat_history"]
-    )
-"""
-    # Instantiate a CustomOutputParser object for parsing output
-#output_parser = CustomOutputParser()
 # Définir les outils dans le chatbot
 tools = [
     Tool(
@@ -91,11 +80,10 @@ prompt = ChatPromptTemplate.from_messages(
         ("placeholder", "{agent_scratchpad}"),
     ]
 )
-#llm_chain = LLMChain(llm=model, prompt=prompt)
 
 # Création de l'agent avec l'outil de recherche d'images
 agent = create_tool_calling_agent(model, tools, prompt)
-agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True, callbacks=callbacks)
+agent_executor = AgentExecutor(agent=agent, tools=tools)
 agent_with_chat_history = RunnableWithMessageHistory(
     agent_executor,
     lambda session_id: get_memory(),
