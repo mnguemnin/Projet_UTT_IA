@@ -8,8 +8,6 @@ Utilise le format suivant pour structurer ta réflexion, ton action et tes répo
 
 Voici un exemple :
 
----------> exemple,
-
 Question : "Quels sont les meilleurs lieux à visiter à Paris ?"
 Étant donné cette requête, vous devez réfléchir et extraire les informations pertinentes.
 Après analyse, il est clair que votre réponse doit être une liste de sites emblématiques à visiter, accompagnée de photos et de recommandations sur les visites à faire à Paris.
