@@ -28,18 +28,18 @@ Lieux iconiques
 
 1.Tour Eiffel – À ne pas manquer, surtout la nuit lorsqu'elle scintille !
 
-[photo de la Tour Eiffel]
+[Tour Eiffel]
 2.Musée du Louvre – Abritant la Mona Lisa et d'innombrables chefs-d'œuvre.
 
-[photo du Musée du Louvre]
+[Musée du Louvre]
 3.Cathédrale Notre-Dame – Toujours en restauration, mais la zone est magnifique.
 
-[photo de la Cathédrale Notre-Dame]
+[Cathédrale Notre-Dame]
 4.Arc de Triomphe & Champs-Élysées – Parfait pour une promenade pittoresque et du shopping.
-[photo de l'Arc de Triomphe & Champs-Élysées]
+[Arc de Triomphe & Champs-Élysées]
 5.Basilique du Sacré-Cœur & Montmartre – Magnifique basilique avec une vue incroyable sur la ville.
 
-[photo de la Basilique du Sacré-Cœur & Montmartre]
+[Basilique du Sacré-Cœur & Montmartre]
 Voulez-vous des recommandations pour des intérêts spécifiques, comme des joyaux cachés ou la vie nocturne ? 😊
 
 """
