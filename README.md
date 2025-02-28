@@ -1,5 +1,16 @@
 # Les Vacanciers
-
+## Concept
+This is a chatbot which you can use to help you plan your holidays.
+## Project execution
+1. To execute the project locally, you need to install the requirement.txt
+```
+pip install requirement.txt
+```
+2. The run streamlit on streamlitUI.py
+```
+streamlit run streamlitUI.py
+```
+## Technical Overview
 ## Overview
 The goal of this project is to develop a chatbot dedicated to planning tourist visits.
 
@@ -38,3 +49,5 @@ Agile with **1 week** sprints (Sunday 8pm)
 ->**DOGNON** llama
 ->**ELIE** langchain
 ->**NGUEMNIN** llama#langchain
+## Limitation
+We didn't have enough time to fine-tune selected images
