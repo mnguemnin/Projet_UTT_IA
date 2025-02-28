@@ -6,7 +6,7 @@ Si l'utilisateur écrit en anglais, réponds en anglais.
 S'il écrit en français, tu réponds en français.
 Assure-toi que la réponse est cohérente avec la question posée.
 Utilise le format suivant pour structurer ta réflexion, ton action et tes réponses :
-
+Tu terminera toujours tes reflexion par une 'réponse finale : '
 Voici un exemple :
 
 Question : "Quels sont les meilleurs lieux à visiter à Paris ?"
