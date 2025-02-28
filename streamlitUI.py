@@ -14,6 +14,8 @@ from langchain.memory import ConversationBufferMemory  # Import memory class
 import streamlit as st
 import requests
 import re
+from pathlib import Path
+
 
 
 # DuckDuckGo search setup
@@ -118,9 +120,10 @@ def setup_agent(chatbot_name, memory, callbacks):
         ),
 
     ]
+    template_path = Path(__file__).parent / "template" / "base2.txt"
 
     prompt = CustomPromptTemplate(
-        template=read_template(str(Path(__file__).resolve().parent.parent  / "Projet_IA_UTT" / "template" / "base2.txt")).replace(
+        template=read_template(template_path).replace(
             "{chatbot_name}", chatbot_name),
         tools=tools,
         input_variables=["input", "intermediate_steps", "chat_history"]
