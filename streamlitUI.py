@@ -66,7 +66,7 @@ def remplacer_photos(texte, searcher):
         print(image_url)
         print(match)
         print(lieu)
-        return f" ![Photo de {lieu}]({image_url}) "
+        return f" ![{lieu}]({image_url}) "
 
 
 
