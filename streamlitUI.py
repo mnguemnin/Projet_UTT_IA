@@ -12,9 +12,68 @@ from template.template import CustomPromptTemplate, read_template
 from parse.parser import CustomOutputParser
 from langchain.memory import ConversationBufferMemory  # Import memory class
 import streamlit as st
+import requests
+import re
+
 
 # DuckDuckGo search setup
 duckduckgo_search = DuckDuckGoSearchRun()
+
+
+class GoogleImageSearch:
+
+
+    def __init__(self, api_key, cx):
+        self.api_key = api_key
+        self.cx = cx
+        self.base_url = "https://www.googleapis.com/customsearch/v1"
+
+    def search_images(self, query):
+        params = {
+            "q": f"{query} tourisme",  # Ajouter "tourisme" pour améliorer la pertinence
+            "cx": self.cx,
+            "key": self.api_key,
+            "searchType": "image",  # Rechercher uniquement des images
+            "num": 1  # Limiter à 1 image
+        }
+        response = requests.get(self.base_url, params=params)
+
+        if response.status_code == 200:
+            results = response.json()
+            if "items" in results and len(results["items"]) > 0:
+                return results["items"][0]["link"]  # Retourne la première URL d'image
+            else:
+                return None  # Aucun résultat trouvé
+        else:
+            print(f"Erreur lors de la recherche d'images : {response.status_code}")
+            return None  # En cas d'erreur, retourne None
+
+
+def remplacer_photos(texte, searcher):
+    """
+    Remplace les placeholders [photo de ...] par des liens d'images trouvés dynamiquement.
+
+    :param texte: Texte contenant les placeholders [photo de ...]
+    :param searcher: Instance de GoogleImageSearch pour récupérer les images
+    :return: Texte avec les liens d'images insérés
+    """
+
+    def remplacement(match):
+        lieu = match.group(1).strip()  # Extrait le texte entre [photo de ...]
+        image_url = searcher.search_images(lieu)  # Recherche d'image pour le lieu
+        print(image_url)
+        print(match)
+        print(lieu)
+        return f" ![Photo de {lieu}]({image_url}) "
+
+
+
+    # Remplacement des placeholders dynamiquement
+    texte_modifie = re.sub(r"(?i)\[(.*?)\]", remplacement, texte)
+    return texte_modifie
+
+searcher = google_image_search = GoogleImageSearch(api_key="AIzaSyDvWP8Pxvo5xMOPcfAG3LDjDjbeNE4oxBg", cx="c00cc1bbcd37248c7")
+
 
 def chat_with_agent(user_input: str, chatbot_name: str, memory, callbacks):
     # Set up agent
@@ -49,12 +108,15 @@ def chat_with_agent(user_input: str, chatbot_name: str, memory, callbacks):
         return f"Une erreur est survenue : {str(e)}"
 
 def setup_agent(chatbot_name, memory, callbacks):
+    google_image_search = GoogleImageSearch(api_key="AIzaSyDvWP8Pxvo5xMOPcfAG3LDjDjbeNE4oxBg", cx="c00cc1bbcd37248c7")
+
     tools = [
         Tool(
             name="DuckDuckGo Search",
             func=duckduckgo_search.run,
             description="\U0001F30D Useful tool to search the Internet for a query and return relevant and up-to-date results."
         ),
+
     ]
 
     prompt = CustomPromptTemplate(
@@ -111,6 +173,11 @@ if user_input:
     callbacks = CallbackManager([])
     agent_executor = setup_agent("Les Vacanciers", st.session_state.memory, callbacks)
     response = chat_with_agent(user_input, "Les Vacanciers", st.session_state.memory, callbacks)
+    response = remplacer_photos(response, searcher)
+    response='🌴'+response+'🏖️'
     st.session_state.messages.append({"role": "assistant", "content": response})
     with st.chat_message("assistant"):
-        st.markdown(f"🌴 {response} 🏖️")
+        st.markdown(f"🏖️ {response} 🌴", unsafe_allow_html=True)
+
+
+
